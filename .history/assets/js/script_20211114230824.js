@@ -22,18 +22,14 @@ generateBtn.addEventListener("click", writePassword);
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 function passwordLength() {
-  var prompPasswordtLength = window.prompt(
+  var promptLength = window.prompt(
     "Please enter a number for the desired character length of password, between 8 and 128."
   );
 
   var regEx = RegExp("^\\d+$");
-  if (
-    regEx.test(prompPasswordtLength) &&
-    prompPasswordtLength >= 8 &&
-    prompPasswordtLength <= 128
-  ) {
-    var isValidLength = prompPasswordtLength;
-    lowerCaseType();
+  if (regEx.test(promptLength) && promptLength >= 8 && promptLength <= 128) {
+    console.log(promptLength);
+    return promptLength;
   } // or just: /^\d+$/.test(strNumber);
   window.alert(
     "You need to provide a valid numeric answer between 8 and 128! Please try again."
@@ -60,21 +56,8 @@ function lowerCaseType() {
   var promptLowerCaseType = window.prompt(
     "Would you like to include lowercase characters?"
   );
-
-  var promptLowerCaseType = promptLowerCaseType.toLowerCase();
-
-  if (promptLowerCaseType === "" || promptLowerCaseType === null) {
-    window.alert(
-      'You need to provide a valid "Yes" or "No"! Please try again.'
-    );
-    lowerCaseType();
-  } else if (promptLowerCaseType === "yes") {
-    var hasLowerCaseType = true;
-    console.log(hasLowerCaseType);
-  } else {
-    var hasLowerCaseType = false;
-    console.log(hasLowerCaseType);
-  }
+  console.log(promptLowerCaseType);
+  return promptLowerCaseType;
 }
 
 // WHEN I answer each prompt
@@ -86,6 +69,6 @@ function lowerCaseType() {
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-function generatePassword() {
+function writePassword() {
   passwordLength();
 }

@@ -22,18 +22,13 @@ generateBtn.addEventListener("click", writePassword);
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 function passwordLength() {
-  var prompPasswordtLength = window.prompt(
-    "Please enter a number for the desired character length of password, between 8 and 128."
+  var promptLength = window.prompt(
+    "Please enter the desired length of password, between 8 and 128 characters."
   );
 
   var regEx = RegExp("^\\d+$");
-  if (
-    regEx.test(prompPasswordtLength) &&
-    prompPasswordtLength >= 8 &&
-    prompPasswordtLength <= 128
-  ) {
-    var isValidLength = prompPasswordtLength;
-    lowerCaseType();
+  if (regEx.test(promptLength) && promptLength >= 8 && promptLength <= 128) {
+    return true;
   } // or just: /^\d+$/.test(strNumber);
   window.alert(
     "You need to provide a valid numeric answer between 8 and 128! Please try again."
@@ -54,28 +49,12 @@ function passwordLength() {
   // }
 }
 
+function writePassword() {
+  passwordLength();
+}
+
 // WHEN asked for character types to include in the password
 // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-function lowerCaseType() {
-  var promptLowerCaseType = window.prompt(
-    "Would you like to include lowercase characters?"
-  );
-
-  var promptLowerCaseType = promptLowerCaseType.toLowerCase();
-
-  if (promptLowerCaseType === "" || promptLowerCaseType === null) {
-    window.alert(
-      'You need to provide a valid "Yes" or "No"! Please try again.'
-    );
-    lowerCaseType();
-  } else if (promptLowerCaseType === "yes") {
-    var hasLowerCaseType = true;
-    console.log(hasLowerCaseType);
-  } else {
-    var hasLowerCaseType = false;
-    console.log(hasLowerCaseType);
-  }
-}
 
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
@@ -85,7 +64,3 @@ function lowerCaseType() {
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
-function generatePassword() {
-  passwordLength();
-}

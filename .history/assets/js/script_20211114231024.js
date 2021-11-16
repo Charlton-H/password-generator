@@ -60,21 +60,8 @@ function lowerCaseType() {
   var promptLowerCaseType = window.prompt(
     "Would you like to include lowercase characters?"
   );
-
-  var promptLowerCaseType = promptLowerCaseType.toLowerCase();
-
-  if (promptLowerCaseType === "" || promptLowerCaseType === null) {
-    window.alert(
-      'You need to provide a valid "Yes" or "No"! Please try again.'
-    );
-    lowerCaseType();
-  } else if (promptLowerCaseType === "yes") {
-    var hasLowerCaseType = true;
-    console.log(hasLowerCaseType);
-  } else {
-    var hasLowerCaseType = false;
-    console.log(hasLowerCaseType);
-  }
+  console.log(promptLowerCaseType);
+  return promptLowerCaseType;
 }
 
 // WHEN I answer each prompt
@@ -86,6 +73,6 @@ function lowerCaseType() {
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-function generatePassword() {
+function writePassword() {
   passwordLength();
 }

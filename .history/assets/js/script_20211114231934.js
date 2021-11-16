@@ -70,7 +70,7 @@ function lowerCaseType() {
     lowerCaseType();
   } else if (promptLowerCaseType === "yes") {
     var hasLowerCaseType = true;
-    console.log(hasLowerCaseType);
+    console.log(promptLowerCaseType);
   } else {
     var hasLowerCaseType = false;
     console.log(hasLowerCaseType);
@@ -86,6 +86,6 @@ function lowerCaseType() {
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-function generatePassword() {
+function writePassword() {
   passwordLength();
 }
