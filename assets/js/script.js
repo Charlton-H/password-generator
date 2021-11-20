@@ -18,9 +18,6 @@ generateBtn.addEventListener("click", writePassword);
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
 
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
 var upperChars = [
   "A",
   "B",
@@ -84,6 +81,8 @@ function generatePassword() {
   // "^\\d+$"
   var regEx = RegExp("^[0-9]*$");
 
+  // WHEN prompted for the length of the password
+  // THEN I choose a length of at least 8 characters and no more than 128 characters
   var passwordLength = prompt(
     "Please enter the number of characters you want for you new password, between 8 and 128."
   );
@@ -101,6 +100,8 @@ function generatePassword() {
     return generatePassword();
   }
 
+  // WHEN asked for character types to include in the password
+  // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
   var numbers = confirm("Do you want numbers in your password?");
 
   var lowerCases = confirm("Do you want lowercases in your password?");
@@ -111,6 +112,8 @@ function generatePassword() {
 
   var possibleValues = "";
 
+  // WHEN I answer each prompt
+  // THEN my input should be validated and at least one character type should be selected
   if (numbers) {
     possibleValues += nums.join("");
   }
@@ -127,29 +130,19 @@ function generatePassword() {
     possibleValues += specialChars;
   }
 
-  // empty string variable for the for loop below
+  // WHEN all prompts are answered
+  // THEN a password is generated that matches the selected criteria
   var randomPasswordGenerated = "";
-  // console.log(stringValues);
+  // console.log(possibleValues);
 
-  // loop getting random characters
+  // loop adding random characters
   for (var i = 0; i < passwordLength; i++) {
     randomPasswordGenerated += possibleValues.charAt(
       Math.floor(Math.random() * possibleValues.length)
     );
   }
-  // to make sure characters are added to the password
 
+  // WHEN the password is generated
+  // THEN the password is either displayed in an alert or written to the page
   return randomPasswordGenerated;
 }
-
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
